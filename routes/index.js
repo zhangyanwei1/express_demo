@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 
 /**demo 路由：get */
 router.get('/get', function(req,res) {
-  res.send('GET request to the page');
+  res.send("get");
 })
 
 /**demo 路由：post */
