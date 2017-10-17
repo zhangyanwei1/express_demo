@@ -1,0 +1,22 @@
+{{#if login}}
+    <p>{{title}}</p>
+    <p>{{msg}}</p>
+    <p>{{lastTime}}</p>
+    <a class="J-logout" href="javascript:void()">退出</a>
+    {{else}}
+    <a href="/login">登录</a>
+{{/if}}
+<script>
+    $(function() {
+        $('.J-logout').click(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type:'GET',
+                url:'/users/logout',
+                success:function(){
+                    window.location.reload(true);
+                }
+            })
+        })
+    })
+</script>

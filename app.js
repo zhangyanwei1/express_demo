@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var login = require('./routes/login');
 
 var app = express();
 
@@ -20,12 +21,16 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+//设置静态资源存放目录
 app.use(express.static(path.join(__dirname, 'public')));
 
+//加载路由
 app.use('/', index);
 app.use('/users', users);
+app.use('/login', login);
 
-// catch 404 and forward to error handler
+// catch 404 and forward to error handler 捕获错误
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
@@ -33,7 +38,7 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-// error handler
+// error handler   错误处理
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;

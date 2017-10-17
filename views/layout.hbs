@@ -3,39 +3,9 @@
   <head>
     <title>{{title}}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src='/javascripts/jquery.js'></script>
   </head>
   <body>
     {{{body}}}
   </body>
-  <script src='/javascripts/jquery.js'></script>
-  <script>
-    $(function(){
-      console.log('jquery');
-      var index = {
-        init:function(){
-          this.getAjax();
-          this.postAjax();
-        },
-        getAjax:function(){
-          $.ajax({
-            type:'GET',
-            url:'/get',
-            success:function(res){
-              console.log(res);
-            }
-          })
-        },
-        postAjax:function(){
-          $.ajax({
-            type:'POST',
-            url:'/post',
-            success:function(res){
-              console.log(res);
-            }
-          })
-        }
-      }
-      index.init();
-    })
-  </script>
 </html>
