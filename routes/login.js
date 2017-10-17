@@ -22,7 +22,7 @@ function updateLastLoginTime(userName) {
   for(var i = 0; i < userdb.length; i++) {
     var user = userdb[i];
     if(userName === user.userName) {
-      user.last = Date.toString();
+      user.last = Date().toString();
       return;
     }
   }
